@@ -1,0 +1,7 @@
+Flask>=1.0.0
+Flask-GraphQL
+graphene-mongo
+graphql-core
+mongomock==3.14.0
+
+graphene==2.0.0
