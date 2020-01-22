@@ -9,7 +9,7 @@ class Usuario(Document):
     
     meta = {'collection': 'usuario'}
     rol = ReferenceField(Rol)
-    persona = StringField(Persona)
+    persona = ReferenceField(Persona)
     estado = StringField()
     nombre = StringField()
     clave = StringField()

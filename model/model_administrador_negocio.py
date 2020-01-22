@@ -4,9 +4,9 @@ from mongoengine.fields import (
 )
 from model.model_usuario import Usuario
 
-class Persona(Document):
+class AdministradorNegocio(Document):
     
-    meta = {'collection': 'persona'}
+    meta = {'collection': 'administrador_negocio'}
     usuario = ReferenceField(Usuario)
     estado = StringField()
     token = StringField()
