@@ -1,8 +1,17 @@
 import graphene
+from datetime import datetime
 from graphene.relay import Node
-from Type import Type
+from graphene_mongo import MongoengineConnectionField, MongoengineObjectType
+from Type import Type, Cliente, Persona, Usuario, Producto
+from Model import Cliente as ClienteM
+from Model import Producto as ProductoM
+from Schemas.schema_producto import CreateProducto
 
 class Query(graphene.ObjectType):
-    node = Node.Field()
+    productos = graphene.List(Producto)
+    clientes = graphene.List(Cliente)
 
-Schema = graphene.Schema(query=Query, types=Type)
+class Mutation(graphene.ObjectType):
+    crearProducto = CreateProducto.Field()
+
+Schema = graphene.Schema(query=Query,mutation=Mutation, types=Type)

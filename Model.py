@@ -1,9 +1,9 @@
 from Models.model_persona import Persona
 from Models.model_rol import Rol
 from Models.model_usuario import Usuario
-from Models.model_proveedor import Proveedor
-from Models.model_categoria_producto import CategoriaProducto
-from Models.model_producto import Producto
+from Models.model_proveedor import (Proveedor, ProveedorInput)
+from Models.model_categoria_producto import (CategoriaProducto, CategoriaProductoInput)
+from Models.model_producto import (Producto, ProductoInput)
 from Models.model_administrador_negocio import AdministradorNegocio
 from Models.model_cliente import Cliente
 from Models.model_compra import Compra
@@ -19,6 +19,7 @@ from Models.model_trabajador import Trabajador
 Model = {
     AdministradorNegocio,
     CategoriaProducto,
+    CategoriaProductoInput,
     Cliente,
     Compra,
     DetalleCompra,
@@ -26,8 +27,10 @@ Model = {
     Negocio,
     Persona,
     Producto,
+    ProductoInput,
     Propuesta,
     Proveedor,
+    ProveedorInput,
     Rol,
     TipoNegocio,
     TipoPropuesta,
