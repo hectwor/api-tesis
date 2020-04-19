@@ -1,6 +1,7 @@
 from datetime import datetime
 from Model import Producto as ProductoM
 from Model import ProductoInput
+from Model import ProductoGraph
 from Type import Producto
 import graphene
 from graphene_mongo import MongoengineConnectionField
@@ -27,9 +28,12 @@ class CreateProducto(graphene.Mutation):
         producto = ProductoInput()
 
     def mutate(self, info, producto):
-        producto = ProductoM(producto)
-        producto.save()
-        return CreateProducto(producto=producto)
+        productoS = ProductoGraph(producto)
+
+        print(producto)
+        print(productoS)
+        ##productoS.save()
+        return CreateProducto(producto)
 
 class UpdateProductoInput(graphene.InputObjectType, ProductoAttribute):
     """Arguments to update a producto."""

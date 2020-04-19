@@ -18,14 +18,24 @@ class Producto(Document):
     descripcion = StringField()
     estado = StringField()
 
-class ProductoInput(graphene.InputObjectType):
-    id = graphene.String()
+class ProductoGraph(graphene.ObjectType):
     nombre = graphene.String()
-    categoria = graphene.List(CategoriaProductoInput, required=False)
+    categoria = graphene.Field(CategoriaProductoInput, required=False)
     codigo = graphene.String()
     precio_venta = graphene.Float()
     precio_compra = graphene.Float()
-    proveedor = graphene.List(ProveedorInput, required=False)
+    proveedor = graphene.Field(ProveedorInput, required=False)
+    stock = graphene.Int()
+    descripcion = graphene.String()
+    estado = graphene.String()
+
+class ProductoInput(graphene.InputObjectType):
+    nombre = graphene.String()
+    categoria = graphene.InputField(CategoriaProductoInput, required=False)
+    codigo = graphene.String()
+    precio_venta = graphene.Float()
+    precio_compra = graphene.Float()
+    proveedor = graphene.InputField(ProveedorInput, required=False)
     stock = graphene.Int()
     descripcion = graphene.String()
     estado = graphene.String()

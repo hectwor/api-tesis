@@ -9,7 +9,9 @@ from Schemas.schema_producto import CreateProducto
 
 class Query(graphene.ObjectType):
     productos = graphene.List(Producto)
-    clientes = graphene.List(Cliente)
+    
+    def resolve_productos(self, info):
+    	return list(ProductoM.objects.all())
 
 class Mutation(graphene.ObjectType):
     crearProducto = CreateProducto.Field()

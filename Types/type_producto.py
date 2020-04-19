@@ -6,4 +6,3 @@ class Producto(MongoengineObjectType):
 
     class Meta:
         model = ProductoModel
-        interfaces = (Node,)
